@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petstrore API</title>
+</head>
+<body>
+    <h2 style="text-align: center">Make an API call to https://petstore.swagger.io/v2/pet/findByStatus?status=available and display a count of
+        the number of pets in the result</h2>
+    <label>Number of pets:</label><br>
+    <textarea id="result"></textarea>
+    <script>
+        const petStore_url = 'https://petstore.swagger.io/v2/pet/findByStatus?status=available'; //defining global variable
+      async function getPetCount() {
+      const response = await fetch(petStore_url);
+      const data = await response.json(); //Converting response to JSON 
+      document.getElementById('result').textContent = data.length;
+      }
+      getPetCount();
+
+    </script>
+
+</body>
+</html>
+
